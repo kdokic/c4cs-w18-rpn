@@ -5,6 +5,7 @@ import operator
 operators = {
     '+': operator.add,
     '-': operator.sub,
+    '*': operator.mul,
 }
 
 def calculate(arg):
