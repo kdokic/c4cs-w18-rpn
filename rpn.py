@@ -21,6 +21,9 @@ def calculate(arg):
             stack.append(result)
         print(stack)
 
+    if len(stack) != 1:
+        raise TypeError
+
     return stack.pop()
             
 
