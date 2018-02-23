@@ -6,5 +6,5 @@ class TestBasics(unittest.TestCase):
         result = rpn.calculate('1 1 +')
         self.assertEqual(2, result)
     def test_adds(self):
-        result = rpn.caclulate('1 1 + 2 +')
+        result = rpn.calculate('1 1 + 2 +')
         self.assertEqual(4, result)
