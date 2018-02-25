@@ -20,3 +20,12 @@ class TestBasics(unittest.TestCase):
     def test_div(self):
         result = rpn.calculate('8 4 /')
         self.assertEqual(2, result)
+    def test_sum(self):
+        result = rpn.calculate('5 1 2 s')
+        self.assertEqual(8, result)
+    def test_rotate(self):
+        result = rpn.calculate('4 3 2 1 r - - -')
+        self.assertEqual(-2, result)
+    def test_copy(self):
+        result = rpn.calculate('1 2 3 c - - -')
+        self.assertEqual(-1, result)

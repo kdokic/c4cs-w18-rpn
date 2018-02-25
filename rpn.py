@@ -16,18 +16,35 @@ operators = {
     '/': operator.truediv,
 }
 
+def summation(stack):
+    total = 0
+    while len(stack) > 0:
+       total += stack.pop()
+    stack.append(total)
+
 def calculate(arg):
     stack = list()
     for token in arg.split():
+        logger.debug('token is ' + token)
         try:
             value = int(token)
             stack.append(value)
         except ValueError:
-            function = operators[token]
-            arg2 = stack.pop()
-            arg1 = stack.pop()
-            result = function(arg1, arg2)
-            stack.append(result)
+            if token == 's':
+                logger.debug('token is summation')
+                summation(stack)
+            elif token == 'r':
+                logger.debug('rotating')
+                stack.reverse()
+            elif token == 'c':
+                logger.debug('copying')
+                stack.append(stack[len(stack) - 1])
+            else:
+                function = operators[token]
+                arg2 = stack.pop()
+                arg1 = stack.pop()
+                result = function(arg1, arg2)
+                stack.append(result)
         logger.debug(stack)
 
     if len(stack) != 1:
