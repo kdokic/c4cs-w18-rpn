@@ -29,3 +29,6 @@ class TestBasics(unittest.TestCase):
     def test_copy(self):
         result = rpn.calculate('1 2 3 c - - -')
         self.assertEqual(-1, result)
+    def test_exponentiation(self):
+        result = rpn.calcualte('2 3 ^')
+        self.assertEqual(8, result)
